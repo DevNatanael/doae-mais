@@ -7,16 +7,27 @@ export class NotificationsController {
 
   @Get('birthday')
   async testBirthday() {
-    console.log('🔥 ROTA CHAMADA');
+    const fakeUsers = [
+      {
+        id: '1',
+        name: 'João',
+        email: 'email1@gmail.com',
+      },
+      {
+        id: '2',
+        name: 'Maria',
+        email: 'email2@gmail.com',
+      },
+    ];
 
-    const fakeUser = {
-      id: '1',
-      name: 'Teste',
-      email: 'apple9934+stevenson@gmail.com',
-    };
+    // simula envio individual
+    for (const user of fakeUsers) {
+      await this.notificationsService.sendBirthdayNotification(user);
+    }
 
-    await this.notificationsService.sendBirthdayNotification(fakeUser);
+    // simula envio coletivo
+    await this.notificationsService.notifyMembersAboutBirthdays(fakeUsers);
 
-    return { message: 'Email enviado' };
+    return { message: 'Emails enviados' };
   }
 }
