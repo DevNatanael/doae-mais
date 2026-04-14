@@ -14,7 +14,7 @@ async function bootstrap() {
   }));
   
   app.setGlobalPrefix('api');
-
+http://localhost:3000/test/birthday
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
