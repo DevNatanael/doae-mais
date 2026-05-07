@@ -18,7 +18,15 @@ Você implementou com sucesso a "camada pública" da sua API, ou seja, as rotas 
     * `GET /api/needs`: Retorna a lista de necessidades.
     * `GET /api/donation-categories`: Retorna os tipos de doação.
     * `POST /api/donations`: Permite que um doador registre uma nova doação. A lógica de serviço valida corretamente os IDs da categoria e da necessidade.
+    * `GET /api/members`: Lista todos os membros registrados.
+    * `GET /api/members/:id`: Retorna os detalhes de um membro específico.
     * **Setup:** `main.ts` está configurado com `ValidationPipe` global (ótimo para validar DTOs), CORS e prefixo `/api`.
+
+3.  **Member CRUD (Novo):** **Concluído.**
+    * `POST /api/members`: Cria um novo membro. Esta rota é protegida e só pode ser usada por um usuário autenticado.
+    * `PUT /api/members/:id`: Atualiza os dados do membro. Também é protegida pelo `JwtAuthGuard`.
+    * `DELETE /api/members/:id`: Remove um membro do sistema. Protegida pelo `JwtAuthGuard`.
+    * Campos do membro: `firstName`, `lastName`, `email`, `address`, `dateOfBirth`.
 
 ---
 

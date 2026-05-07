@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
+import { MembersModule } from './members/members.module';
 import { DonationCategoriesModule } from './donation_categories/donation_categories.module';
 import { NeedsModule } from './needs/needs.module';
 import { DonationsModule } from './donations/donations.module';
@@ -32,6 +33,8 @@ import { SchedulerModule } from './scheduler/scheduler.module';
     }),
 
     UsersModule,
+
+    MembersModule,
 
     DonationCategoriesModule,
 
