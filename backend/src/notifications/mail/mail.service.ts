@@ -1,0 +1,15 @@
+import { Injectable } from '@nestjs/common';
+import { MailerService } from '@nestjs-modules/mailer';
+
+@Injectable()
+export class MailService {
+  constructor(private mailerService: MailerService) {}
+
+  async sendEmail(to: string | string[], subject: string, html: string) {
+    await this.mailerService.sendMail({
+      to,
+      subject,
+      html,
+    });
+  }
+}

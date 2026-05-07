@@ -1,8 +1,7 @@
-// backend/src/users/entities/user.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 
-@Entity('users') // Nome da tabela no banco
+@Entity('users')
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -13,7 +12,11 @@ export class User {
   @Column()
   password: string;
 
-  // Hook do TypeORM para hashear a senha antes de salvar
+  // 🎂 NOVO CAMPO
+  @Column({ type: 'date', nullable: true })
+  birthDate: Date;
+
+  // 🔐 Hash da senha
   @BeforeInsert()
   async hashPassword() {
     this.password = await bcrypt.hash(this.password, 10);
