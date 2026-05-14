@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AdminDashboard from "../components/Admin/AdminDashboard";
 import DonationsTable from "../components/Admin/DonationsTable";
 import NeedsManager from "../components/Admin/NeedsManager";
+import MembersManager from "../components/Admin/MembersManager";
 
 const AdminArea = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -51,6 +52,12 @@ const AdminArea = () => {
           >
             📢 Campanhas
           </button>
+          <button 
+            style={tabStyle(activeTab === "members")} 
+            onClick={() => setActiveTab("members")}
+          >
+            👥 Membros
+          </button>
         </div>
 
         {/* CONTEÚDO DINÂMICO */}
@@ -58,6 +65,7 @@ const AdminArea = () => {
           {activeTab === "dashboard" && <AdminDashboard />}
           {activeTab === "donations" && <DonationsTable />}
           {activeTab === "needs" && <NeedsManager />}
+          {activeTab === "members" && <MembersManager />}
         </div>
 
       </div>
